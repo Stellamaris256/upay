@@ -1,0 +1,55 @@
+{% extends 'master.html' %}
+
+{% block content %}
+   <div class="container">
+
+    {% if error %}
+        <p> {{ error }} </p>
+    {% endif %}
+
+    {% if success %}
+        <p> {{ success }} </p>
+    {% endif %}
+
+    {% if pin_set %}
+     
+            <h3>Transfer PIN</h3>
+            <p>Update your transaction pin </p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="column">
+                    <label>Old PIN:</label>
+                    <input type="password" name="old_pin" maxlength="4" required>
+                </div>
+                <div class="column">
+                    <label>New PIN:</label>
+                    <input type="password" name="new_pin" maxlength="4" required>
+                </div>
+                <div class="column">
+                    <label>Confirm PIN:</label>
+                    <input type="password" name="new_pin_confirm" maxlength="4" required>
+                </div>
+                <button type="submit">Save PIN</button>
+            </form>
+    
+
+    {% else %}
+        
+            <h3>Set Transfer PIN</h3>
+            <p>you have not set your transaction pin </p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="column">
+                    <label>New PIN:</label>
+                    <input type="password" name="new_pin" maxlength="4" required>
+                </div>
+                <div class="column">
+                    <label>Confirm PIN:</label>
+                    <input type="password" name="new_pin_confirm" maxlength="4" required>
+                </div>
+                <button type="submit">Save PIN</button>
+            </form>
+    
+
+    {% endif %}
+{% endblock %}

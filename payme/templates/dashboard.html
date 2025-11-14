@@ -1,0 +1,12 @@
+{% extends 'master.html' %}
+
+
+{% block content %}
+    <div class="container">
+        <h3>Your Account Balance</h3>
+        <p> NGN{{ client.balance }} </p>
+        
+        <h3>Account Number</h3>
+        <p> {{ client.account_number }} </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - Simple Bank</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h2>Simple Bank App</h2>
+    </header>
+
+    <div class="container">
+        <h3>Create an Account</h3>
+
+        {% if error %}
+        <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="column">
+                <label>Username:</label>
+                <input type="text" name="username" required>
+            </div>
+
+            <div class="column">
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="column">
+                <label>Password:</label>
+                <input type="password" name="password" required>
+            </div>
+
+            <div class="column">
+                <label>Confirm Password:</label>
+                <input type="password" name="confirm" required>
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p style="margin-top:15px; text-align:center;">
+            Already have an account? <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Simple Bank</p>
+    </footer>
+</body>
+</html>

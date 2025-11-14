@@ -1,0 +1,38 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="container">
+       {% if_error message method="get"}
+    <h3>Make a Transfer</h3>
+ 
+        <p>Confirm Us before Making a Tansfer</p>
+        <div class="column">
+            <label>Recipient Account Number:</label>
+            <input type="text" name="recipient-account-number" required>
+        </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="column">
+            <label>Recipient Username:</label>
+            <input type="text" name="recipient-account-number" required>
+        </div>
+
+        <div class="column">
+            <label>Amount (₦):</label>
+            <input type="number" name="amount" required>
+        </div>
+
+        <div class="column">
+            <label>Enter PIN:</label>
+            <input type="password" name="pin" required>
+        </div>
+
+        <button type="submit">Send Money</button>
+    </form>
+
+    <form method="POST">
+         {% csrf_token %}
+    </form>
+</div>
+{% endblock %}
