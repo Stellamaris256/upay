@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "FALSE")  == "True"
 
 # ALLOWED_HOSTS = [os.getenv('ALLOWED_HOST')]
-ALLOWED_HOSTS = ['upay.onrender.com']
+ALLOWED_HOSTS = ['upay-xfof.onrender.com']
 
 
 # Application definition
